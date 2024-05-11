@@ -1,0 +1,9 @@
+require:
+  - rubocop-rails
+  - rubocop-factory_bot
+
+AllCops:
+  TargetRubyVersion: 3.3.1
+  NewCops: enable
+
+# Outras configurações...
