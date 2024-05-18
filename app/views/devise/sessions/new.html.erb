@@ -1,26 +1,99 @@
-<h2>Log in</h2>
+<div class="flex items-center">
+  <div class="w-full md:w-1/2 bg-cover bg-center flex flex-col justify-center h-screen px-8 md:bg-none">
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="fixed inset-0 md:hidden pointer-events-none z-0">
+    <img src="<%= asset_path 'mosaic_background.png' %>" class="absolute inset-0 z-0 w-full h-full object-cover" alt="Background Image">
+    <div class="absolute inset-0 custom-gradient z-10"></div>
   </div>
 
-  <div class="field">
-    <%= f.label :password %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+
+  <div class="flex justify-center items-center mb-11 z-20 sm:justify-start sm:mt-4">
+    <%= image_tag "logo.png", alt: "Logo", class: "rounded-full h-10 w-10 mr-4" %>
+    <p class="text-2xl font-black text-teal-500">FinMan</p>
+  </div>
+  
+  <div class="mb-5 z-20">
+    <h2 class="text-2xl font-black text-teal-500 text-center">Welcome back!</h2>
+    <h3 class="text-base font-bold text-teal-500 text-center">Enter your email and password to access your account</h3>
   </div>
 
-  <% if devise_mapping.rememberable? %>
-    <div class="field">
-      <%= f.check_box :remember_me %>
-      <%= f.label :remember_me %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "z-20 md:mx-10" }) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="relative h-11 w-full min-w-[200px]">
+      <%= f.email_field :email, 
+                        autocomplete: "email",
+                        placeholder: "email",
+                        class: "peer h-full w-full border-b border-teal-500 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all placeholder-shown:border-teal-500 focus:border-teal-500 focus:outline-0 disabled:border-0 disabled:bg-teal-50 placeholder:opacity-0 focus:placeholder:opacity-100"%>
+
+      <%= f.label :email, 
+                  class: "after:content[''] pointer-events-none absolute left-0  -top-1.5 flex h-full w-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight text-gray-950 transition-all after:absolute after:-bottom-1.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-teal-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-teal-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-teal-900 peer-focus:after:scale-x-100 peer-focus:after:border-teal-700 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-teal-700"
+      %>
+    </div>
+    <br />
+
+    <div class="relative h-11 w-full min-w-[200px]">
+      <%= f.password_field :password,
+                           autocomplete: "current-password",
+                           placeholder: "password",
+                           class: "peer h-full w-full border-b border-teal-500 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-gray-700 outline outline-0 transition-all placeholder-shown:border-teal-500 focus:border-teal-500 focus:outline-0 disabled:border-0 disabled:bg-teal-50 placeholder:opacity-0 focus:placeholder:opacity-100"
+      %>
+      <%= f.label :password,
+                  class: "after:content[''] pointer-events-none absolute left-0  -top-1.5 flex h-full w-full select-none !overflow-visible truncate text-[11px] font-normal leading-tight text-gray-950 transition-all after:absolute after:-bottom-1.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-teal-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-teal-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-teal-900 peer-focus:after:scale-x-100 peer-focus:after:border-teal-700 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-teal-700"
+      %>
+    </div>
+
+    <div class="pt-4 flex items-center justify-between">
+      <div class="inline-flex items-center">
+        <label class="relative flex items-center rounded-full cursor-pointer pr-4" htmlFor="blue">
+          <%= f.check_box :remember_me, 
+                        class: "before:content[''] peer relative h-5 w-5 cursor-pointer appearance-none rounded-md border border-teal-200 transition-all before:absolute before:top-2/4 before:left-2/4 before:block before:h-12 before:w-12 before:-translate-y-2/4 before:-translate-x-2/4 before:rounded-full before:bg-teal-500 before:opacity-0 before:transition-opacity checked:border-teal-500 checked:bg-teal-500 checked:before:bg-teal-500 hover:before:opacity-10",
+                        id: "teal"
+          %>
+          <span
+            class="absolute text-white transition-opacity opacity-0 pointer-events-none top-2/4 left-2/4 -translate-y-2/4 -translate-x-2/4 peer-checked:opacity-100">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5" viewBox="0 0 20 20" fill="currentColor"
+              stroke="currentColor" stroke-width="1">
+              <path fill-rule="evenodd"
+                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                clip-rule="evenodd"></path>
+            </svg>
+          </span>
+        </label>
+        <label class="mt-px text-gray-700 cursor-pointer select-none" htmlFor="check">
+          Remember Me
+        </label>
+      </div>
+      <div class="text-gray-700">
+        <%= link_to "Forgot password?", new_password_path(resource_name) %>
+      </div>
+    </div>
+
+    <br />
+
+    <div class="flex flex-col gap-5 mt-7">
+      <%= f.submit "Login", class: "w-full align-middle select-none font-sans font-bold text-center transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-sm py-3 px-6 rounded-lg bg-teal-500 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none active:opacity-[0.85] active:shadow-none" %>
+      <button class="w-full select-none rounded-lg border border-teal-500 text-center align-middle font-sans text-sm py-3 px-6 font-bold text-teal-500 transition-all hover:opacity-75 focus:ring focus:ring-teal-300 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none" type="button">
+        <%= image_tag "google_icon.svg", alt: "Google Icon", class: "w-5 h-5 inline-block" %>
+        Sign in with Google
+      </button>
+
+      <div class="flex justify-center text-sm">
+        Don't you have an account?  
+        <span class="text-teal-500 font-bold ml-1"> <%= link_to "Sign up", new_registration_path(resource_name) %><br /><br /> </span>
+      </div>
     </div>
   <% end %>
 
-  <div class="actions">
-    <%= f.submit "Log in" %>
-  </div>
-<% end %>
+  <!-- 
+  <%= render "devise/shared/links" %>
+  -->
 
-<%= render "devise/shared/links" %>
+  </div>
+
+  <div class="hidden md:block w-full md:w-1/2 relative h-screen">
+    <div class="absolute inset-0 bg-gradient-to-r from-white to-transparent"></div>
+    <img src="<%= asset_path 'mosaic_background.png' %>" class="w-full h-full object-cover" alt="Background Image">
+  </div>
+<div>
+
