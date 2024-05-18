@@ -60,4 +60,8 @@ group :test do
   gem 'simplecov', '~> 0.22.0', require: false
 end
 
-gem "tailwindcss-rails", "~> 2.6"
+gem 'tailwindcss-rails', '~> 2.6'
+
+gem 'devise', '~> 4.9'
+
+gem 'letter_opener', '~> 1.10'
