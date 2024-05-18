@@ -33,6 +33,10 @@ gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 
+gem 'tailwindcss-rails', '~> 2.6'
+
+gem 'devise', '~> 4.9'
+
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails', '~> 6.4'
@@ -52,6 +56,8 @@ group :development do
 
   # Speed up commands on slow machines / big apps [https://github.com/rails/spring]
   # gem "spring"
+  
+  gem 'letter_opener', '~> 1.10'
 end
 
 group :test do
@@ -60,8 +66,5 @@ group :test do
   gem 'simplecov', '~> 0.22.0', require: false
 end
 
-gem 'tailwindcss-rails', '~> 2.6'
 
-gem 'devise', '~> 4.9'
 
-gem 'letter_opener', '~> 1.10'
