@@ -17,7 +17,7 @@
     <h3 class="text-base font-bold text-teal-500 text-center">No worries, we’ll send you reset instructions </h3>
   </div>
 
-  <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "z-20 md:mx-10" }) do |f| %>
+  <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { class: "z-20 md:mx-10" }) do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="relative h-11 w-full min-w-[200px]">
