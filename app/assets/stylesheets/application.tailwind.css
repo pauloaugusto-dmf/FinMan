@@ -11,3 +11,9 @@
 }
 
 */
+
+@media (max-width: 767px) {
+  .md\\:hidden {
+    display: none;
+  }
+}
