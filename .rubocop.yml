@@ -7,3 +7,10 @@ AllCops:
   NewCops: enable
 
 # Outras configurações...
+
+Style/Documentation:
+  Enabled: false
+
+Metrics/BlockLength:
+  Exclude:
+    - lib/tasks/auto_annotate_models.rake
