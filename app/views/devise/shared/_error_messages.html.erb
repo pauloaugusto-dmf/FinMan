@@ -1,5 +1,5 @@
 <% if resource.errors.any? %>
-  <div class="fixed top-0 left-0 right-0 z-50 flex justify-start p-4 transition-opacity duration-300 ease-in-out" data-controller="alert" data-target="alert.container" data-action="transition:enter->alert#slideInRight transition:leave->alert#slideOutRight">
+  <div class="alert container-transition fixed top-0 left-0 right-0 z-50 flex justify-start p-4 transition-opacity duration-300 ease-in-out" data-controller="alert" data-target="alert.container" data-action="transition:enter->alert#slideInRight transition:leave->alert#slideOutRight">
     <div
       role="alert"
       class="relative flex w-full max-w-[600px] px-4 py-4 text-base text-white bg-opacity-90 bg-red-400 rounded-lg font-regular opacity-0 transform -translate-x-full transition-transform duration-300 ease-in-out"

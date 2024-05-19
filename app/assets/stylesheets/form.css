@@ -26,3 +26,11 @@
 .-translate-x-full-custom {
   transform: translateX(-150%);
 }
+
+.translate-x-0 {
+  transform: translateX(0);
+}
+
+.container-transition {
+  transition: transform 0.3s ease-in-out;
+}

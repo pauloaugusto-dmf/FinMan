@@ -15,6 +15,14 @@ export default class extends Controller {
   slideOutRight() {
     this.containerTarget.classList.remove("translate-x-0");
     this.containerTarget.classList.add("-translate-x-full-custom");
+
+    this.containerTarget.addEventListener("transitionend", this.removeElement);
+  }
+
+  removeElement = (event) => {
+    if (event.propertyName === 'transform') {
+      this.containerTarget.parentElement.remove();
+    }
   }
 
   close() {
