@@ -67,3 +67,5 @@ group :test do
 end
 
 gem 'annotate', '~> 3.2'
+
+gem "view_component", "~> 3.12"
