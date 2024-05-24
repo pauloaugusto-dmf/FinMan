@@ -12,8 +12,11 @@
 #  current_sign_in_ip     :string
 #  email                  :string           default(""), not null
 #  encrypted_password     :string           default(""), not null
+#  first_name             :string
+#  last_name              :string
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :string
+#  phone                  :string
 #  remember_created_at    :datetime
 #  reset_password_sent_at :datetime
 #  reset_password_token   :string
@@ -29,7 +32,6 @@
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #
 class User < ApplicationRecord
-  # Include default devise modules. Others available are:
   # :lockable, :timeoutable, and :omniauthable
   devise :database_authenticatable,
          :confirmable,
@@ -38,4 +40,8 @@ class User < ApplicationRecord
          :rememberable,
          :trackable,
          :validatable
+
+  has_one_attached :avatar
+
+  validates :phone, format: { with: /\A\d{10}\z/, message: 'must be 10 digits' }, allow_blank: true
 end

@@ -7,4 +7,6 @@ Rails.application.routes.draw do
   root 'main#index'
 
   resources :main, only: [:index]
+  get 'users/edit'
+  put 'users/update'
 end

@@ -12,6 +12,9 @@
   </head>
 
   <body class="min-h-screen flex flex-col">
+    <% unless skip_navbar? %>
+      <%= render "layouts/navbar" %>
+    <% end %>
     <%= render "layouts/error_messages" %>
     <%= yield %>
   </body>
