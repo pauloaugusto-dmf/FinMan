@@ -4,11 +4,13 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
-      redirect_to @user, notice: 'User was successfully updated.'
+    if current_user.update!(user_params)
+      redirect_to users_edit_path, notice: 'User was successfully updated.'
     else
-      render :edit
+      redirect_to users_edit_path, alert: 'Failed to update user.'
     end
+  rescue ActiveRecord::RecordInvalid => e
+    redirect_to users_edit_path, alert: e.record.errors.full_messages.join('. ').concat('.')
   end
 
   private

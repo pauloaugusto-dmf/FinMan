@@ -1,0 +1,13 @@
+<div class="file-input" data-controller="avatar-file-input">
+  <div class="relative w-20 h-20">
+    <%= @form.file_field :avatar, class: "hidden", id: "avatar-file-input", data: { avatar_file_input_target: "input" } %>
+    <span class="bottom-2 left-16 absolute  w-3.5 h-3.5  bg-teal-500 hover:bg-teal-700 hover:cursor-pointer rounded-full">
+      <%= image_tag "edit_icon.svg", alt: "Edit Icon", class: "p-0.5 fill-white stroke-white" %>
+    </span>
+    <% if @avatar_url.present? %>
+      <%= image_tag @avatar_url, alt: "Avatar", class: "w-20 h-20 rounded-full object-cover" %>
+    <% else %>
+      <%= image_tag "avatar_profile.jpg", alt: "Avatar", class: "w-20 h-20 rounded-full object-cover" %>
+    <% end %>
+  </div>
+</div>

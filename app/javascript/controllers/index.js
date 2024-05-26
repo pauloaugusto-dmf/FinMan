@@ -6,6 +6,10 @@ import { application } from "./application"
 
 import AlertController from "./alert_controller";
 import DropdownController from "./dropdown_controller";
+import AvatarFileInputController from "./avatar_file_input_controller";
+import PhoneNumberMaskController from "./phone_number_mask_controller";
 
 application.register("alert", AlertController)
 application.register("dropdown", DropdownController);
+application.register("avatar-file-input", AvatarFileInputController)
+application.register("phone-number-mask", PhoneNumberMaskController)

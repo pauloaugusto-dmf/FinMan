@@ -43,5 +43,17 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
-  validates :phone, format: { with: /\A\d{10}\z/, message: 'must be 10 digits' }, allow_blank: true
+  validates :phone, format: { with: /\A\d{11}\z/, message: 'must be 11 digits' }, allow_blank: true
+
+  before_validation :sanitize_phone_number
+
+  def avatar_url
+    avatar.attached? ? Rails.application.routes.url_helpers.rails_blob_url(avatar, only_path: true) : nil
+  end
+
+  private
+
+  def sanitize_phone_number
+    self.phone = phone&.gsub(/\D/, '')
+  end
 end
